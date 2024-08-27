@@ -1,9 +1,9 @@
 import { http, createConfig, createStorage } from '@wagmi/vue'
-import { mainnet, optimism, sepolia } from '@wagmi/vue/chains'
+import { mainnet, sepolia, base } from '@wagmi/vue/chains'
 import { coinbaseWallet, walletConnect } from '@wagmi/vue/connectors'
 
 export const config = createConfig({
-  chains: [mainnet, sepolia, optimism],
+  chains: [mainnet, sepolia, base],
   connectors: [
     walletConnect({
       projectId: import.meta.env.VITE_WC_PROJECT_ID,
@@ -14,7 +14,7 @@ export const config = createConfig({
   transports: {
     [mainnet.id]: http(),
     [sepolia.id]: http(),
-    [optimism.id]: http(),
+    [base.id]: http(),
   },
 })
 
